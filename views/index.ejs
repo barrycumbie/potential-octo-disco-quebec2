@@ -4,3 +4,23 @@
 
 <h2> <%=herokuVar %></h2>
 
+<h3> Current Drinkz on hand</h3> 
+ <% for (var i=0; i< drinkData.length; i++ ) { %>
+  <form method="POST" action="/deleteDrink/<%= drinkData[i]._id %>" style="display: inline-block">  
+    <%= drinkData[i].drink_name %> (<%= drinkData[i].size %>) 
+    <input type="submit" value="delete"> 
+  </form>
+  <br/>
+<% } %> 
+
+<h3> add a new drink </h3>
+
+<form method="POST" action="/addDrink">
+    <label for="drink_name">Drink</label>
+        <input name="drink_name" value="new drink">
+    <br>
+    <label for="size">size</label>
+      <input name="size" value="gallon"> 
+    <br>
+    <input type="submit" value="add a drink" />
+</form>
