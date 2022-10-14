@@ -10,7 +10,8 @@ let someVar = "";
 app.get('/', function (req, res) {
 //   res.send('Hello World')
   res.render('index', {
-    someVar : "hello from node, express, & EJS, nodemon here too!"
+    someVar : "hello from node, express, & EJS, nodemon here too!",
+    herokuVar : process.env.HEROKU_NAME
   })
 })
 
