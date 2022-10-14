@@ -1,0 +1,27 @@
+{
+  "name": "potential-octo-disco-quebec2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon run app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barrycumbie/potential-octo-disco-quebec2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barrycumbie/potential-octo-disco-quebec2/issues"
+  },
+  "homepage": "https://github.com/barrycumbie/potential-octo-disco-quebec2#readme",
+  "devDependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
