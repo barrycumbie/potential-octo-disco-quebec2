@@ -7,7 +7,6 @@ const { ObjectId } = require('mongodb')
 const PORT = process.env.PORT || 3000;
 const herokuVar = process.env.HEROKU_NAME || "local Barry"
 const { MongoClient, ServerApiVersion } = require('mongodb');
-// const MONGO_URI = "mongodb+srv://barry:GMSk9usexg5A8p5Q@cluster0.taug6.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
@@ -63,6 +62,29 @@ app.post('/addDrink', async (req, res) => {
   }
   finally{
    // client.close()
+  }
+
+})
+
+
+app.post('/updateDrink/:id', async (req, res) => {
+
+  try {
+    console.log("req.parms.id: ", req.params.id) 
+    
+    client.connect; 
+    const collection = client.db("chillAppz").collection("drinkz");
+    let result = await collection.findOneAndUpdate( 
+      {"_id": ObjectId(req.params.id)}, { $set: {"size": "REALLY BIG DRINK" } }
+    )
+    .then(result => {
+      console.log(result); 
+      res.redirect('/');
+    })
+    .catch(error => console.error(error))
+  }
+  finally{
+    //client.close()
   }
 
 })

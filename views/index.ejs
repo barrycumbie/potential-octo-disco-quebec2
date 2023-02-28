@@ -13,6 +13,17 @@
   <br/>
 <% } %> 
 
+
+<h3> Current Drinkz on hand</h3> 
+ <% for (var i=0; i< drinkData.length; i++ ) { %>
+  <form method="POST" action="/updateDrink/<%= drinkData[i]._id %>" style="display: inline-block">  
+    <%= drinkData[i].drink_name %> (<%= drinkData[i].size %>) 
+    <input type="submit" value="update"> 
+  </form>
+  <br/>
+<% } %>
+
+
 <h3> add a new drink </h3>
 
 <form method="POST" action="/addDrink">
